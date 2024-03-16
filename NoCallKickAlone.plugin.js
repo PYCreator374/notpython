@@ -1,13 +1,20 @@
 /**
  * @name NoCallKickAlone
  * @author Alex
- * @version 1.0
  * @description Prevents Discord calls from being kicked when alone for more than 3 minutes
- * @source https://github.com/PYCreator374/notpython/new/main
- * @updateUrl https://raw.githubusercontent.com/PYCreator374/notpython/main/NoCallKickAlone.plugin.js
+ * @version 1.0
+ * @source https://github.com/YOUR_USERNAME/YOUR_REPOSITORY
+ * @updateUrl https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPOSITORY/main/NoCallKickAlone.plugin.js
  */
 
-const main = () => {
+module.exports = class NoCallKickAlone {
+  constructor(meta) {
+    // Do initialization tasks here
+    this.meta = meta;
+  }
+
+  start() {
+    // Do tasks when the plugin is enabled
     const checkCallInterval = 10000; // Check call status every 10 seconds
     const maxAloneTime = 180000; // 3 minutes in milliseconds
 
@@ -32,6 +39,10 @@ const main = () => {
     };
 
     setInterval(checkCall, checkCallInterval);
-};
+  }
 
-document.addEventListener('DOMContentLoaded', main);
+  stop() {
+    // Clean up tasks when the plugin is disabled
+    clearInterval(this.checkCallInterval);
+  }
+};
