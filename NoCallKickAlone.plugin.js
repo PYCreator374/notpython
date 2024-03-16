@@ -16,7 +16,7 @@ module.exports = class NoCallKickAlone {
   start() {
     // Do tasks when the plugin is enabled
     const checkCallInterval = 10000; // Check call status every 10 seconds
-    const maxAloneTime = 180000; // 3 minutes in milliseconds
+    const maxAloneTime = 120000; // 2 minutes in milliseconds
 
     let inCall = false;
     let lastActivityTime = Date.now();
